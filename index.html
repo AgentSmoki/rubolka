@@ -1,0 +1,2000 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RUBOLKA — Одежда оптом. Своё производство в Москве.</title>
+<link rel="icon" href="assets/favicon.jpg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: #0D0D0D;
+    color: #FFFFFF;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  :root {
+    --bg: #0D0D0D;
+    --bg-2: #141414;
+    --bg-3: #1c1c1c;
+    --line: rgba(255,255,255,0.10);
+    --line-2: rgba(255,255,255,0.18);
+    --fg: #FFFFFF;
+    --fg-dim: rgba(255,255,255,0.62);
+    --fg-mute: rgba(255,255,255,0.42);
+    --red: #E8001D;
+    --red-deep: #B30016;
+  }
+
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+  @media (min-width: 768px) { .wrap { padding: 0 40px; } }
+
+  .display {
+    font-family: 'Oswald', 'Inter', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    line-height: 0.96;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-mute);
+  }
+  .eyebrow .dot {
+    display: inline-block; width: 6px; height: 6px;
+    background: var(--red); border-radius: 50%;
+    transform: translateY(-2px); margin-right: 10px;
+  }
+
+  /* ── Top bar ── */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(13,13,13,0.86);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 0 16px 12px;
+    gap: 24px;
+  }
+  @media (min-width: 768px) {
+    .topbar-inner { padding: 18px 0 18px 28px; }
+  }
+  .brand-word {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 22px;
+    line-height: 1;
+    display: inline-flex; align-items: baseline; gap: 4px;
+    position: relative;
+  }
+  .brand-word .ru { color: #fff; }
+  .brand-word .bolka { color: #fff; position: relative; }
+  .brand-word .bolka::after {
+    content: ""; position: absolute;
+    left: 0; right: 0; bottom: -6px;
+    height: 3px; background: var(--red);
+  }
+  .brand-word .opt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--fg-mute);
+    letter-spacing: 0.24em;
+    margin-left: 8px;
+    text-transform: uppercase;
+    align-self: center;
+  }
+  .nav { display: none; gap: 28px; }
+  .nav a {
+    font-size: 13px; color: var(--fg-dim);
+    transition: color .15s;
+  }
+  .nav a:hover { color: var(--fg); }
+  @media (min-width: 1024px) { .nav { display: flex; } }
+  .top-cta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.06em;
+    padding: 10px 16px;
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .top-cta:hover { background: #fff; color: #0D0D0D; border-color: #fff; }
+
+  /* ── Buttons ── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 18px 28px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; font-size: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform .15s ease, background .15s, color .15s, border-color .15s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-red { background: var(--red); color: #fff; }
+  .btn-red:hover { background: #ff0a25; }
+  .btn-ghost { color: #fff; border-color: var(--line-2); background: transparent; }
+  .btn-ghost:hover { border-color: #fff; }
+  .btn .arrow {
+    width: 18px; height: 10px;
+    border-top: 1.5px solid currentColor;
+    position: relative;
+  }
+  .btn .arrow::after {
+    content: ""; position: absolute; right: 0; top: -4px;
+    width: 8px; height: 8px;
+    border-top: 1.5px solid currentColor;
+    border-right: 1.5px solid currentColor;
+    transform: rotate(45deg);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    padding: 56px 0 40px;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  @media (min-width: 768px) { .hero { padding: 88px 0 64px; } }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at 70% 40%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 30%, transparent 80%);
+    pointer-events: none;
+  }
+  .hero-meta {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    align-items: center; justify-content: space-between;
+    margin-bottom: 56px;
+  }
+  .hero-meta .left { display: flex; gap: 24px; flex-wrap: wrap; }
+  .hero-meta .stamp {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--fg-mute);
+    letter-spacing: 0.12em;
+  }
+  .hero-meta .stamp b { color: #fff; font-weight: 500; }
+  .hero h1 {
+    margin: 0;
+    font-size: clamp(40px, 7.4vw, 116px);
+    line-height: 0.98;
+  }
+  .hero h1 .accent { color: var(--red); }
+  .hero h1 .thin {
+    font-weight: 400;
+    color: var(--fg-dim);
+    text-transform: lowercase;
+    font-size: 0.78em;
+    letter-spacing: 0;
+  }
+  .hero h1 .row-2 { display: block; }
+  .hero h1 .place {
+    color: var(--fg-dim); font-weight: 400;
+    text-transform: lowercase;
+    font-size: 0.6em; letter-spacing: 0;
+  }
+  .hero h1 .place b { color: #fff; font-weight: 600; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-top: 48px;
+    align-items: end;
+  }
+  @media (min-width: 1024px) {
+    .hero-grid { grid-template-columns: 1.4fr 1fr; gap: 64px; }
+  }
+  .hero-sub {
+    font-size: clamp(16px, 1.6vw, 19px);
+    color: var(--fg-dim);
+    max-width: 540px;
+    line-height: 1.55;
+  }
+  .hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+
+  .hero-stats {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+  }
+  @media (min-width: 768px) { .hero-stats { grid-template-columns: repeat(4, 1fr); } }
+  .hero-stat {
+    background: var(--bg);
+    padding: 22px 18px 20px;
+  }
+  .hero-stat .num {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(34px, 4.4vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .hero-stat .num small { color: var(--red); font-size: 0.55em; vertical-align: top; margin-left: 2px; }
+  .hero-stat .lab {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--fg-mute);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ── Section primitive ── */
+  section.s {
+    padding: 88px 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  @media (min-width: 768px) { section.s { padding: 120px 0; } }
+  .s-head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 56px;
+    align-items: end;
+  }
+  @media (min-width: 1024px) {
+    .s-head { grid-template-columns: 1fr 1fr; gap: 48px; }
+  }
+  .s-title {
+    font-size: clamp(36px, 5.5vw, 76px);
+  }
+  .s-title .red { color: var(--red); }
+  .s-kicker {
+    color: var(--fg-dim);
+    max-width: 480px;
+    font-size: 16px;
+  }
+
+  /* ── Trust marquee ── */
+  .trust { padding: 56px 0; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+  .trust-head {
+    display: flex; align-items: center; gap: 18px;
+    margin-bottom: 32px;
+  }
+  .trust-head .line {
+    flex: 1; height: 1px; background: var(--line);
+  }
+  .trust-list {
+    display: flex; flex-wrap: wrap; gap: 0;
+    border-top: 1px solid var(--line);
+    margin: 0; padding: 0;
+  }
+  .trust-list li {
+    list-style: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: clamp(20px, 3vw, 36px);
+    letter-spacing: 0.01em;
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    color: var(--fg-dim);
+    transition: color .2s, background .2s;
+    flex: 1 1 auto;
+  }
+  .trust-list li:hover { color: #fff; background: var(--bg-2); }
+  .trust-list li .idx {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--fg-mute);
+    margin-right: 14px;
+    vertical-align: middle;
+  }
+  .trust-foot {
+    margin-top: 22px;
+    font-size: 13px;
+    color: var(--fg-mute);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Why us ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  @media (min-width: 640px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .why-grid { grid-template-columns: repeat(3, 1fr); } }
+  .why-card {
+    background: var(--bg);
+    padding: 40px 32px 36px;
+    position: relative;
+    transition: background .2s;
+  }
+  .why-card:hover { background: var(--bg-2); }
+  .why-card .ico {
+    width: 44px; height: 44px;
+    margin-bottom: 28px;
+    color: var(--red);
+  }
+  .why-card .num {
+    position: absolute;
+    top: 24px; right: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--fg-mute);
+    letter-spacing: 0.1em;
+  }
+  .why-card h3 {
+    margin: 0 0 12px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .why-card p {
+    margin: 0;
+    color: var(--fg-dim);
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  /* ── Assortment ── */
+  .ass-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 640px) { .ass-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ass-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+  .ass-card {
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+    transition: border-color .2s, transform .2s;
+    background: var(--bg);
+  }
+  .ass-card:hover { border-color: var(--line-2); }
+  .ass-card .img {
+    aspect-ratio: 4 / 5;
+    background: var(--bg-2);
+    position: relative;
+    overflow: hidden;
+  }
+  .ass-card .img img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(0%) brightness(0.95) contrast(1.05);
+    transition: transform .5s ease, filter .3s;
+  }
+  .ass-card:hover .img img { transform: scale(1.04); filter: brightness(1) contrast(1.1); }
+  .ass-card .img-label {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #fff;
+    letter-spacing: 0.1em;
+    display: flex; justify-content: space-between;
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.7));
+    z-index: 2;
+  }
+  .ass-card .corner, .ass-card .corner-r {
+    position: absolute; top: 12px;
+    width: 14px; height: 14px;
+    border-color: rgba(255,255,255,0.7);
+    z-index: 2;
+  }
+  .ass-card .corner { left: 12px; border-top: 1px solid; border-left: 1px solid; }
+  .ass-card .corner-r { right: 12px; border-top: 1px solid; border-right: 1px solid; }
+  .ass-card .body {
+    padding: 24px 24px 28px;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .ass-card .cat-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--red);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .ass-card h3 {
+    margin: 0 0 8px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    text-transform: uppercase;
+  }
+  .ass-card p {
+    margin: 0;
+    color: var(--fg-dim);
+    font-size: 14px;
+  }
+
+  .fabrics {
+    margin-top: 32px;
+    padding: 24px 28px;
+    border: 1px dashed var(--line-2);
+    display: flex; flex-wrap: wrap;
+    gap: 8px 18px;
+    align-items: center;
+  }
+  .fabrics .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--fg-mute);
+    letter-spacing: 0.12em;
+    margin-right: 8px;
+  }
+  .fabrics .chip {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: #fff;
+  }
+  .fabrics .chip + .chip::before {
+    content: "·"; color: var(--red); margin-right: 18px;
+  }
+
+  /* ── Print methods ── */
+  .print-table {
+    border: 1px solid var(--line);
+  }
+  .print-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-bottom: 1px solid var(--line);
+    transition: background .15s;
+  }
+  .print-row:last-child { border-bottom: 0; }
+  .print-row:hover { background: var(--bg-2); }
+  @media (min-width: 768px) {
+    .print-row { grid-template-columns: 80px 1.2fr 1fr 2fr; align-items: center; }
+  }
+  .print-row > div { padding: 28px 24px; }
+  .print-row .pn {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--red);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+  }
+  .print-row .name {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 24px;
+  }
+  .print-row .min {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: #fff;
+  }
+  .print-row .min span { color: var(--fg-mute); }
+  .print-row .desc {
+    color: var(--fg-dim);
+    font-size: 14.5px;
+  }
+  .print-foot {
+    margin-top: 24px;
+    color: var(--fg-mute);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+  }
+
+  /* Production gallery */
+  .equipment {
+    margin-top: 56px;
+    padding-top: 56px;
+    border-top: 1px solid var(--line);
+  }
+  .equipment-head {
+    display: flex; justify-content: space-between; align-items: end;
+    flex-wrap: wrap; gap: 16px;
+    margin-bottom: 32px;
+  }
+  .equipment h3 {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(28px, 3.6vw, 44px);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .equipment h3 .red { color: var(--red); }
+  .equipment-head p {
+    margin: 0;
+    color: var(--fg-dim);
+    max-width: 380px;
+    font-size: 14.5px;
+  }
+  .eq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  @media (min-width: 768px) {
+    .eq-grid { grid-template-columns: 1.4fr 1fr 1fr; gap: 12px; }
+  }
+  .eq-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    aspect-ratio: 4 / 3;
+  }
+  .eq-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: brightness(0.85) contrast(1.1) saturate(0.9);
+    transition: filter .3s, transform .5s;
+  }
+  .eq-card:hover img { filter: brightness(1) contrast(1.1); transform: scale(1.03); }
+  .eq-card .lbl {
+    position: absolute;
+    left: 16px; top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: #fff;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(4px);
+    padding: 6px 10px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .eq-card .cap {
+    position: absolute;
+    left: 16px; right: 16px; bottom: 16px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+  }
+  .eq-card .red-bar {
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 4px; height: 60px;
+    background: var(--red);
+  }
+
+  /* ── Steps ── */
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  @media (min-width: 768px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+  .step {
+    background: var(--bg);
+    padding: 36px 28px 40px;
+    position: relative;
+  }
+  .step .n {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 88px;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--red);
+    margin-bottom: 24px;
+  }
+  .step h3 {
+    margin: 0 0 8px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+  }
+  .step p {
+    margin: 0; color: var(--fg-dim); font-size: 14px; line-height: 1.55;
+  }
+  .step-fact {
+    margin-top: 48px;
+    display: flex; align-items: center; gap: 28px;
+    flex-wrap: wrap;
+  }
+  .step-fact .big {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(72px, 10vw, 140px);
+    line-height: 1;
+    color: var(--red);
+    letter-spacing: -0.02em;
+  }
+  .step-fact .txt {
+    font-size: 18px;
+    color: var(--fg-dim);
+    max-width: 520px;
+    line-height: 1.4;
+  }
+  .step-fact .txt b { color: #fff; font-weight: 600; }
+
+  /* ── Reviews ── */
+  .reviews {
+    background: #0a0a0a;
+    overflow: hidden;
+  }
+  .reviews-strip {
+    display: flex;
+    gap: 14px;
+    padding: 8px 0 36px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .reviews-strip::-webkit-scrollbar { display: none; }
+  .review-card {
+    flex: 0 0 auto;
+    width: 240px;
+    aspect-ratio: 9 / 19;
+    border: 1px solid var(--line);
+    background: var(--bg-2);
+    overflow: hidden;
+    position: relative;
+    scroll-snap-align: start;
+    transition: transform .3s, border-color .3s;
+  }
+  .review-card:hover { transform: translateY(-4px); border-color: var(--red); }
+  .review-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    object-position: top center;
+  }
+  .review-card .stamp {
+    position: absolute;
+    top: 12px; left: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    background: rgba(0,0,0,0.65);
+    color: #fff;
+    padding: 4px 8px;
+    letter-spacing: 0.1em;
+    border: 1px solid rgba(255,255,255,0.15);
+    z-index: 2;
+  }
+  .review-card .src {
+    position: absolute;
+    bottom: 12px; right: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: #fff;
+    background: rgba(0,0,0,0.55);
+    padding: 4px 8px;
+    letter-spacing: 0.06em;
+    z-index: 2;
+  }
+  .reviews-meta {
+    display: flex; gap: 36px; flex-wrap: wrap;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    margin-top: 12px;
+  }
+  .reviews-meta .item .k {
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px; font-weight: 700;
+    line-height: 1;
+  }
+  .reviews-meta .item .k .red { color: var(--red); }
+  .reviews-meta .item .v {
+    margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--fg-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .reviews-hint {
+    color: var(--fg-mute);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    margin-top: 18px;
+  }
+
+  /* ── Logistics ── */
+  .log-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 768px) { .log-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+  .log-card {
+    border: 1px solid var(--line);
+    padding: 36px 32px 40px;
+    background: var(--bg);
+    position: relative;
+  }
+  .log-card h3 {
+    margin: 0 0 24px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 28px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .log-card h3 .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--fg-mute);
+    letter-spacing: 0.1em;
+    border: 1px solid var(--line-2);
+    padding: 4px 8px;
+    text-transform: none;
+    font-weight: 400;
+  }
+  .log-card ul { margin: 0; padding: 0; list-style: none; }
+  .log-card li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--fg-dim);
+    font-size: 15px;
+    display: flex; gap: 14px;
+  }
+  .log-card li:last-child { border-bottom: 0; }
+  .log-card li::before {
+    content: ""; flex: none;
+    width: 6px; height: 6px;
+    background: var(--red);
+    margin-top: 9px;
+  }
+
+  /* ── Telegram block ── */
+  .tg-section {
+    background: linear-gradient(180deg, #0D0D0D, #141414);
+    overflow: hidden;
+    position: relative;
+  }
+  .tg-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .tg-grid { grid-template-columns: 1fr 1.05fr; gap: 80px; }
+  }
+  .tg-side .eyebrow { margin-bottom: 24px; }
+  .tg-side h2 {
+    margin: 0 0 24px;
+    font-size: clamp(36px, 5vw, 64px);
+  }
+  .tg-side .lead {
+    color: var(--fg-dim); font-size: 17px;
+    max-width: 460px;
+    margin-bottom: 32px;
+  }
+  .tg-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 24px 0 32px;
+  }
+  .tg-feature {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.02);
+  }
+  .tg-feature .icon {
+    width: 8px; height: 8px; background: var(--red); flex: none;
+    margin-top: 8px;
+  }
+  .tg-feature p { margin: 0; font-size: 14.5px; color: var(--fg-dim); }
+  .tg-feature p b { color: #fff; font-weight: 600; }
+
+  .tg-cta {
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 18px 28px;
+    background: #2AABEE;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    transition: background .15s, transform .15s;
+  }
+  .tg-cta:hover { background: #229ed9; transform: translateY(-1px); }
+  .tg-cta .tg-ico {
+    width: 22px; height: 22px;
+    background: #fff;
+    color: #2AABEE;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .tg-cta .tg-ico svg { width: 14px; height: 14px; }
+
+  .tg-mocks {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .tg-mock {
+    border: 1px solid var(--line-2);
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.45);
+  }
+  .tg-mock img {
+    width: 100%;
+    display: block;
+  }
+  .tg-mock:nth-child(1) {
+    transform: translateY(20px) rotate(-1.5deg);
+  }
+  .tg-mock:nth-child(2) {
+    transform: translateY(-20px) rotate(1.5deg);
+  }
+  .tg-mocks .badge {
+    position: absolute;
+    z-index: 4;
+    top: -14px; left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    background: var(--red);
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    box-shadow: 0 8px 16px rgba(232,0,29,0.3);
+  }
+
+  /* ── Form section ── */
+  .form-section {
+    background: linear-gradient(180deg, #0D0D0D 0%, #141414 100%);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .deco-num {
+    position: absolute;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.06);
+    line-height: 0.8;
+    pointer-events: none;
+    user-select: none;
+  }
+  .form-section .deco-num {
+    top: 30px; right: -30px;
+    font-size: clamp(180px, 30vw, 420px);
+  }
+  @media (max-width: 767px) { .form-section .deco-num { display: none; } }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  @media (min-width: 1024px) { .form-grid { grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; } }
+  .form-side h2 {
+    margin: 0 0 24px;
+    font-size: clamp(36px, 5vw, 64px);
+  }
+  .form-side .lead { color: var(--fg-dim); font-size: 17px; max-width: 460px; }
+  .form-side .checklist { margin-top: 32px; padding: 0; list-style: none; }
+  .form-side .checklist li {
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    display: flex; align-items: center; gap: 14px;
+    font-size: 14.5px;
+    color: var(--fg-dim);
+  }
+  .form-side .checklist li:last-child { border-bottom: 1px solid var(--line); }
+  .form-side .checklist li::before {
+    content: "✓"; color: var(--red); font-weight: 700;
+  }
+  form.lead-form {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 40px 32px;
+  }
+  @media (min-width: 768px) { form.lead-form { padding: 48px 44px; } }
+  form.lead-form .field { display: block; margin-bottom: 24px; }
+  form.lead-form label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--fg-mute);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  form.lead-form input,
+  form.lead-form select {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--line-2);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    padding: 10px 0 12px;
+    transition: border-color .15s;
+  }
+  form.lead-form input::placeholder { color: rgba(255,255,255,0.30); }
+  form.lead-form input:focus,
+  form.lead-form select:focus {
+    outline: none;
+    border-bottom-color: var(--red);
+  }
+  form.lead-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1L6 6L11 1' stroke='white' stroke-width='1.5'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+  }
+  form.lead-form select option { background: #0D0D0D; color: #fff; }
+  form.lead-form .row2 { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 640px) { form.lead-form .row2 { grid-template-columns: 1fr 1fr; gap: 32px; } }
+  form.lead-form button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 22px;
+    background: var(--red);
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 0.06em;
+    transition: background .15s;
+  }
+  form.lead-form button:hover { background: #ff0a25; }
+  form.lead-form .form-foot {
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--fg-mute);
+    text-align: center;
+  }
+  form.lead-form .form-foot a { color: #fff; border-bottom: 1px solid var(--red); }
+
+  /* ── Footer ── */
+  footer {
+    padding: 80px 0 32px;
+    background: var(--bg);
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 56px;
+  }
+  @media (min-width: 768px) {
+    .foot-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; }
+  }
+  .foot-logo {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 22px;
+  }
+  .foot-logo img {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    border: 1px solid var(--line-2);
+  }
+  .foot-logo .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--fg-mute);
+    letter-spacing: 0.18em;
+    line-height: 1.6;
+  }
+  .foot-logo .meta b { color: #fff; font-weight: 500; }
+  .foot-col h4 {
+    margin: 0 0 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--fg-mute);
+    font-weight: 500;
+  }
+  .foot-col p, .foot-col a {
+    color: var(--fg-dim);
+    font-size: 14.5px;
+    margin: 0 0 8px;
+    display: block;
+    line-height: 1.55;
+  }
+  .foot-col a:hover { color: #fff; }
+  .foot-col strong { color: #fff; font-weight: 600; }
+  .foot-bottom {
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--fg-mute);
+    letter-spacing: 0.08em;
+  }
+
+  .mega-word {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(72px, 18vw, 280px);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.18);
+    margin-top: 56px;
+    user-select: none;
+  }
+  .mega-word .red { color: var(--red); -webkit-text-stroke: 0; }
+
+  /* ── Pricing teaser ── */
+  .pricing {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) { .pricing { padding: 140px 0; } }
+  .pricing::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(232,0,29,0.04) 1px, transparent 1px);
+    background-size: 120px 100%;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .pricing-head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 64px;
+    align-items: end;
+  }
+  @media (min-width: 1024px) {
+    .pricing-head { grid-template-columns: 1.4fr 1fr; gap: 56px; }
+  }
+  .pricing-head h2 {
+    margin: 24px 0 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 0.96;
+    font-size: clamp(36px, 5.4vw, 76px);
+  }
+  .pricing-head h2 .red { color: var(--red); }
+  .pricing-head h2 .strike {
+    display: inline-block;
+    position: relative;
+    color: var(--fg-dim);
+    font-weight: 400;
+  }
+  .pricing-head h2 .strike::after {
+    content: "";
+    position: absolute;
+    left: -2%; right: -2%;
+    top: 52%;
+    height: 3px;
+    background: var(--red);
+    transform: rotate(-3deg);
+  }
+  .pricing-head .lead {
+    color: var(--fg-dim);
+    font-size: 16.5px;
+    line-height: 1.6;
+    max-width: 460px;
+  }
+
+  .price-table {
+    border: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .price-row {
+    display: grid;
+    grid-template-columns: 50px 1.6fr 1.4fr;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    transition: background .15s;
+    position: relative;
+  }
+  .price-row:last-child { border-bottom: 0; }
+  .price-row:hover { background: var(--bg-2); }
+  .price-row > div { padding: 26px 18px; }
+  @media (min-width: 768px) {
+    .price-row { grid-template-columns: 80px 1.6fr 1.2fr 0.6fr; }
+    .price-row > div { padding: 30px 28px; }
+  }
+  .price-row .pn {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--red);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .price-row .name {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: clamp(18px, 2.2vw, 24px);
+    line-height: 1.1;
+  }
+  .price-row .name small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    text-transform: none;
+    color: var(--fg-mute);
+    font-weight: 400;
+    letter-spacing: 0;
+    margin-top: 6px;
+  }
+  .price-row .price {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 2.6vw, 32px);
+    color: #fff;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .price-row .price .from {
+    color: var(--fg-mute);
+    font-size: 0.55em;
+    margin-right: 4px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .price-row .price .cur {
+    color: var(--red);
+    font-size: 0.65em;
+    font-weight: 600;
+    margin-left: 2px;
+  }
+  .price-row .tag {
+    display: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--fg-mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  @media (min-width: 768px) { .price-row .tag { display: block; } }
+
+  .price-extras {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 768px) { .price-extras { grid-template-columns: 1fr 1fr; } }
+  .price-extra {
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--red);
+    padding: 24px 28px;
+    background: rgba(232,0,29,0.03);
+  }
+  .price-extra .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--red);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .price-extra p {
+    margin: 0;
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .price-extra p b { color: #fff; font-weight: 600; }
+  .price-extra p span { color: var(--fg-dim); }
+
+  .price-foot {
+    margin-top: 40px;
+    display: flex; flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .price-foot .note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--fg-mute);
+    letter-spacing: 0.06em;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+  .price-foot .note b { color: #fff; font-weight: 500; }
+
+  /* ── WhatsApp floating ── */
+  .wa-float {
+    position: fixed;
+    right: 24px; bottom: 24px;
+    z-index: 80;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 12px 28px rgba(37,211,102,0.35), 0 4px 8px rgba(0,0,0,0.4);
+    transition: transform .2s;
+  }
+  .wa-float:hover { transform: scale(1.06); }
+  .wa-float svg { width: 30px; height: 30px; color: #fff; }
+
+  .red { color: var(--red); }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+</style>
+</head>
+<body>
+
+<!-- ── TOP BAR ── -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="#" class="brand-word">
+      <span class="ru">RU</span><span class="bolka">BOLKA</span>
+      <span class="opt">ОПТ · ХОУЛСЕЙЛ</span>
+    </a>
+    <nav class="nav">
+      <a href="#why">Преимущества</a>
+      <a href="#assortment">Ассортимент</a>
+      <a href="#print">Нанесение</a>
+      <a href="#process">Как начать</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a href="#lead" class="top-cta">Каталог и цены →</a>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-meta">
+      <div class="left">
+        <span class="stamp"><b>EST. 2022</b> · Москва</span>
+        <span class="stamp">Партия № 0084 / 2026</span>
+      </div>
+      <span class="stamp"><span class="red">●</span> Производство активно — отгрузки идут</span>
+    </div>
+
+    <h1 class="display">
+      Одежда оптом —<br>
+      <span class="thin">своё&nbsp;</span><span class="accent">производство</span><br>
+      <span class="place">в&nbsp;<b>Москве</b></span>
+    </h1>
+
+    <div class="hero-grid">
+      <p class="hero-sub">
+        Шьём трикотаж и изделия из синтетики на двух собственных цехах — общий объём
+        <b style="color:#fff;">110 швей</b>. Работаем с маркетплейсами, розницей
+        и корпоративными заказчиками с 2022 года. Честные цены, гарантия качества.
+      </p>
+      <div>
+        <div class="hero-cta-row">
+          <a href="#lead" class="btn btn-red">Получить каталог<span class="arrow"></span></a>
+          <a href="#assortment" class="btn btn-ghost">Ассортимент</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top: 88px;">
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">110</div>
+        <div class="lab">Швей в&nbsp;двух цехах</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">2–14<small>дн.</small></div>
+        <div class="lab">Срок пошива</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">1<small>%</small></div>
+        <div class="lab">Процент брака</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">от 30</div>
+        <div class="lab">Партия со склада</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST ── -->
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-head">
+      <span class="eyebrow"><span class="dot"></span>Нам доверяют</span>
+      <span class="line"></span>
+      <span class="mono" style="font-size:11px;color:var(--fg-mute);letter-spacing:0.12em;">CLIENTS · 2022–2026</span>
+    </div>
+    <ul class="trust-list">
+      <li><span class="idx">01</span>Лукойл</li>
+      <li><span class="idx">02</span>Газпром</li>
+      <li><span class="idx">03</span>Точка</li>
+      <li><span class="idx">04</span>Сургутнефтегаз</li>
+      <li><span class="idx">05</span>ТАБ ТАБ</li>
+      <li><span class="idx">06</span>Балтбет</li>
+      <li><span class="idx">07</span>Хилари</li>
+    </ul>
+    <p class="trust-foot">+ сотни оптовых покупателей по всей России</p>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section class="s" id="why">
+  <div class="wrap">
+    <div class="s-head">
+      <h2 class="display s-title">Почему<br>выбирают <span class="red">нас</span></h2>
+      <p class="s-kicker">Мы уже готовы. Производство развёрнуто, склад есть, документы в порядке — осталось познакомиться.</p>
+    </div>
+
+    <div class="why-grid">
+      <article class="why-card">
+        <span class="num">01 / 06</span>
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 42V18l10 6V18l10 6V12h16v30H6z"/>
+          <path d="M14 30h4M22 30h4M34 30h4M34 22h4"/>
+        </svg>
+        <h3>Своё производство</h3>
+        <p>Два собственных цеха в Москве — малый и крупный. Общий парк — 110 швей. Без посредников.</p>
+      </article>
+      <article class="why-card">
+        <span class="num">02 / 06</span>
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 4l16 6v14c0 10-8 18-16 20-8-2-16-10-16-20V10l16-6z"/>
+          <path d="M16 24l6 6 12-12"/>
+        </svg>
+        <h3>ЧЗ и сертификаты</h3>
+        <p>Маркировка «Честный знак», сертификаты ЕАС, декларации соответствия — всё в порядке.</p>
+      </article>
+      <article class="why-card">
+        <span class="num">03 / 06</span>
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 4l18 10v20L24 44 6 34V14L24 4z"/>
+          <path d="M6 14l18 10 18-10M24 24v20"/>
+        </svg>
+        <h3>Гибкая мин. партия</h3>
+        <p>От <b style="color:#fff;">150 ед.</b> на лёгкие изделия, от <b style="color:#fff;">50 ед.</b> на тяжёлые. Со склада — от 30 ед.</p>
+      </article>
+      <article class="why-card">
+        <span class="num">04 / 06</span>
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M26 4L8 28h12l-4 16 18-24H22l4-16z" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3>Быстрый пошив</h3>
+        <p>2–14 дней в зависимости от объёма. Отгрузки со склада — 1–3 дня после оплаты.</p>
+      </article>
+      <article class="why-card">
+        <span class="num">05 / 06</span>
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M40 16a16 16 0 1 0-4 18l4-4"/>
+          <path d="M40 8v10h-10"/>
+        </svg>
+        <h3>Брак — 1%</h3>
+        <p>Технологический контроль на каждом этапе. Спорные изделия меняем без вопросов.</p>
+      </article>
+      <article class="why-card">
+        <span class="num">06 / 06</span>
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 12h6l4 22h22l4-16H14"/>
+          <circle cx="20" cy="40" r="2.5"/>
+          <circle cx="34" cy="40" r="2.5"/>
+        </svg>
+        <h3>Бирки и нанесение под ключ</h3>
+        <p>Делаем бирки и почти любой тип нанесения внутри. Помогаем с уникализацией для маркетплейсов.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── ASSORTMENT ── -->
+<section class="s" id="assortment">
+  <div class="wrap">
+    <div class="s-head">
+      <h2 class="display s-title">Наш<br>ассортимент</h2>
+      <p class="s-kicker">В основном трикотаж и синтетика. Полная размерная линейка, женские и мужские посадки, оверсайз и базовые формы.</p>
+    </div>
+
+    <div class="ass-grid">
+      <article class="ass-card">
+        <div class="img">
+          <span class="corner"></span><span class="corner-r"></span>
+          <img src="assets/wear/sku001-girl.jpg" alt="Базовая футболка оверсайз">
+          <span class="img-label"><span>SKU · 001</span><span>OVERSIZE TEE</span></span>
+        </div>
+        <div class="body">
+          <div class="cat-num">КАТЕГОРИЯ 01</div>
+          <h3>Футболки</h3>
+          <p>Женские приталенные, мужские прямого кроя, унисекс, оверсайз, базовые. Хлопок, плотность 160–200 г/м².</p>
+        </div>
+      </article>
+
+      <article class="ass-card">
+        <div class="img">
+          <span class="corner"></span><span class="corner-r"></span>
+          <img src="assets/wear/tee-black-detail.png" alt="Базовая футболка">
+          <span class="img-label"><span>SKU · 002</span><span>BASIC</span></span>
+        </div>
+        <div class="body">
+          <div class="cat-num">КАТЕГОРИЯ 02</div>
+          <h3>Базовая линейка</h3>
+          <p>Чёрный, белый, серый меланж, базовая палитра. Идеально под нанесение и в розницу.</p>
+        </div>
+      </article>
+
+      <article class="ass-card">
+        <div class="img">
+          <span class="corner"></span><span class="corner-r"></span>
+          <img src="assets/wear/sport-2.jpg" alt="Спортивный костюм">
+          <span class="img-label"><span>SKU · 003</span><span>SPORTSWEAR</span></span>
+        </div>
+        <div class="body">
+          <div class="cat-num">КАТЕГОРИЯ 03</div>
+          <h3>Спортивные костюмы</h3>
+          <p>Состав 80/20 с флисом. Тёплые, не теряют форму после стирки. Свои лекала.</p>
+        </div>
+      </article>
+
+      <article class="ass-card">
+        <div class="img">
+          <span class="corner"></span><span class="corner-r"></span>
+          <img src="assets/wear/sku004-red-hoodie.jpg" alt="Красный костюм с худи">
+          <span class="img-label"><span>SKU · 004</span><span>HOODIES</span></span>
+        </div>
+        <div class="body">
+          <div class="cat-num">КАТЕГОРИЯ 04</div>
+          <h3>Худи и толстовки</h3>
+          <p>Двухнитка и трёхнитка с петлёй или начёсом. Плотность ткани от 280 до 340 г/м².</p>
+        </div>
+      </article>
+
+      <article class="ass-card">
+        <div class="img">
+          <span class="corner"></span><span class="corner-r"></span>
+          <img src="assets/wear/tee-grey-couple.png" alt="Унисекс линейка">
+          <span class="img-label"><span>SKU · 005</span><span>UNISEX</span></span>
+        </div>
+        <div class="body">
+          <div class="cat-num">КАТЕГОРИЯ 05</div>
+          <h3>Унисекс и пары</h3>
+          <p>Парные комплекты, family-look, семейные сеты. Размеры от XS до XXL.</p>
+        </div>
+      </article>
+
+      <article class="ass-card" style="border-color: rgba(232,0,29,0.4);">
+        <div class="img">
+          <span class="corner" style="border-color: var(--red);"></span>
+          <span class="corner-r" style="border-color: var(--red);"></span>
+          <img src="assets/wear/merch-jacket-back.jpg" alt="Корпоративный мерч — куртка с вышивкой">
+          <span class="img-label"><span style="color:var(--red);">SKU · 006</span><span>MERCH</span></span>
+        </div>
+        <div class="body" style="border-top-color: rgba(232,0,29,0.4);">
+          <div class="cat-num">КАТЕГОРИЯ 06</div>
+          <h3>Корпоративный мерч</h3>
+          <p>Любые изделия с нанесением под заказ. Полный цикл — от макета до коробки с биркой.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="fabrics">
+      <span class="lbl">ТКАНИ →</span>
+      <span class="chip">Супрем</span>
+      <span class="chip">Интерлок</span>
+      <span class="chip">Кашкорсе</span>
+      <span class="chip">Рибана</span>
+      <span class="chip">Двухнитка</span>
+      <span class="chip">Трёхнитка</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRINT METHODS ── -->
+<section class="s" id="print">
+  <div class="wrap">
+    <div class="s-head">
+      <h2 class="display s-title">Нанесение<br>на одежду</h2>
+      <p class="s-kicker">Четыре технологии под разные тиражи и бюджеты. Подскажем, какая подойдёт под ваш макет — пришлите PNG или JPEG.</p>
+    </div>
+
+    <div class="print-table">
+      <div class="print-row">
+        <div class="pn">/01</div>
+        <div class="name">Шелкография</div>
+        <div class="min">от <span>50 ед.</span></div>
+        <div class="desc">Для больших тиражей. Стойкая краска, насыщенные цвета, экономия на масштабе.</div>
+      </div>
+      <div class="print-row">
+        <div class="pn">/02</div>
+        <div class="name">DTF-печать</div>
+        <div class="min">от <span>1 ед.</span></div>
+        <div class="desc">Полноцветные изображения, любой тираж. Подходит для фото и сложной графики.</div>
+      </div>
+      <div class="print-row">
+        <div class="pn">/03</div>
+        <div class="name">Вышивка</div>
+        <div class="min">от <span>30 ед.</span></div>
+        <div class="desc">Премиальный вид, объёмная фактура. Срок изготовления 5–14 дней.</div>
+      </div>
+      <div class="print-row">
+        <div class="pn">/04</div>
+        <div class="name">Термоперенос</div>
+        <div class="min">от <span>10 ед.</span></div>
+        <div class="desc">Быстро и недорого. Хорошо ложится на ровные плоскости и стандартные ткани.</div>
+      </div>
+    </div>
+
+    <p class="print-foot">→ Нужен макет в PNG или JPEG — пришлите нам, обсудим по телефону.</p>
+
+    <div class="equipment">
+      <div class="equipment-head">
+        <h3>Своё <span class="red">оборудование</span> — без посредников</h3>
+        <p>Карусели для шелкографии, автоматические станки, цех нанесения. Работаем с большими тиражами без передачи на сторону.</p>
+      </div>
+
+      <div class="eq-grid">
+        <div class="eq-card">
+          <span class="lbl">CEX · 01</span>
+          <img src="assets/production/p1.jpg" alt="Карусель шелкографии">
+          <span class="red-bar"></span>
+          <span class="cap">Карусель шелкографии</span>
+        </div>
+        <div class="eq-card">
+          <span class="lbl">CEX · 02</span>
+          <img src="assets/production/p2.jpg" alt="Производственный цех">
+          <span class="red-bar"></span>
+          <span class="cap">Цех нанесения</span>
+        </div>
+        <div class="eq-card">
+          <span class="lbl">CEX · 03</span>
+          <img src="assets/production/p3.jpg" alt="Печатный станок">
+          <span class="red-bar"></span>
+          <span class="cap">Печатный станок</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="s" id="process">
+  <div class="wrap">
+    <div class="s-head">
+      <h2 class="display s-title">Начать работу<br><span class="red">просто</span></h2>
+      <p class="s-kicker">Четыре шага. Без бюрократии, без скрытых условий — обсуждаем индивидуально, фиксируем письменно.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <h3>Каталог</h3>
+        <p>Отправляем актуальный каталог с ценами на WhatsApp или email.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h3>Выбор</h3>
+        <p>Вы выбираете интересующие модели и объём. Согласуем ткани, цвета, размеры.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h3>Оплата</h3>
+        <p>100% предоплата при отгрузке со склада или 50% при пошиве.</p>
+      </div>
+      <div class="step">
+        <div class="n">04</div>
+        <h3>Сотрудничество</h3>
+        <p>После проверки качества обсуждаем постоянные условия и приоритет в очереди.</p>
+      </div>
+    </div>
+
+    <div class="step-fact">
+      <div class="big">87%</div>
+      <p class="txt">клиентов после пробной партии <b>увеличивают объёмы в 5–10 раз</b>. Это не магия — это качество, которое видно с первой стирки.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── REVIEWS ── -->
+<section class="s reviews" id="reviews">
+  <div class="wrap">
+    <div class="s-head">
+      <h2 class="display s-title">Отзывы<br>в<span class="red">&nbsp;живых</span> чатах</h2>
+      <p class="s-kicker">Мы не пишем отзывы за клиентов и не покупаем их. Это настоящие переписки — скриншоты из WhatsApp и Telegram. Перелистывайте.</p>
+    </div>
+
+    <div class="reviews-strip" id="reviewStrip">
+      <div class="review-card">
+        <span class="stamp">REV · 01</span>
+        <img src="assets/reviews/r1.png" alt="Отзыв 01">
+        <span class="src">WhatsApp</span>
+      </div>
+      <div class="review-card">
+        <span class="stamp">REV · 02</span>
+        <img src="assets/reviews/r2.png" alt="Отзыв 02">
+        <span class="src">WhatsApp</span>
+      </div>
+      <div class="review-card">
+        <span class="stamp">REV · 03</span>
+        <img src="assets/reviews/r3.png" alt="Отзыв 03">
+        <span class="src">WhatsApp</span>
+      </div>
+      <div class="review-card">
+        <span class="stamp">REV · 04</span>
+        <img src="assets/reviews/r4.png" alt="Отзыв 04">
+        <span class="src">WhatsApp</span>
+      </div>
+      <div class="review-card">
+        <span class="stamp">REV · 05</span>
+        <img src="assets/reviews/r5.png" alt="Отзыв 05">
+        <span class="src">WhatsApp</span>
+      </div>
+      <div class="review-card">
+        <span class="stamp">REV · 06</span>
+        <img src="assets/reviews/r6.png" alt="Отзыв 06">
+        <span class="src">WhatsApp</span>
+      </div>
+      <div class="review-card">
+        <span class="stamp">REV · 07</span>
+        <img src="assets/reviews/r7.png" alt="Отзыв 07">
+        <span class="src">WhatsApp</span>
+      </div>
+      <div class="review-card">
+        <span class="stamp">REV · 08</span>
+        <img src="assets/reviews/r8.jpg" alt="Отзыв 08">
+        <span class="src">WhatsApp</span>
+      </div>
+      <div class="review-card">
+        <span class="stamp">REV · 09</span>
+        <img src="assets/reviews/r9.jpg" alt="Отзыв 09">
+        <span class="src">WhatsApp</span>
+      </div>
+      <div class="review-card">
+        <span class="stamp">REV · 10</span>
+        <img src="assets/reviews/r10.jpg" alt="Отзыв 10">
+        <span class="src">Telegram</span>
+      </div>
+    </div>
+
+    <div class="reviews-meta">
+      <div class="item"><div class="k">10<span class="red">/</span>10</div><div class="v">Скриншотов в подборке</div></div>
+      <div class="item"><div class="k">87<span class="red">%</span></div><div class="v">Возвращаются за повтором</div></div>
+      <div class="item"><div class="k">1<span class="red">%</span></div><div class="v">Брак на партии</div></div>
+      <div class="item"><div class="k">4<span class="red">+</span></div><div class="v">Года на рынке (с 2022)</div></div>
+    </div>
+    <p class="reviews-hint">→ ПРОКРУТИТЕ ВПРАВО, ИЛИ КЛИКНИТЕ ПО КАРТОЧКЕ ЧТОБЫ УВЕЛИЧИТЬ</p>
+  </div>
+</section>
+
+<!-- ── LOGISTICS ── -->
+<section class="s" id="logistics">
+  <div class="wrap">
+    <div class="s-head">
+      <h2 class="display s-title">Доставка<br>по всей России</h2>
+      <p class="s-kicker">Возим со всеми крупными перевозчиками. Условия оплаты обсуждаем индивидуально — гибко и без шаблонов.</p>
+    </div>
+
+    <div class="log-grid">
+      <div class="log-card">
+        <h3>Доставка <span class="tag">1–7 дней</span></h3>
+        <ul>
+          <li>СДЭК · ПЭК · Деловые линии · КИТ</li>
+          <li>Москва — 1 день, регионы — 2–7 дней</li>
+          <li>Работаем с физлицами и юрлицами</li>
+          <li>Самовывоз со склада в любое время</li>
+        </ul>
+      </div>
+      <div class="log-card">
+        <h3>Оплата <span class="tag">50% или 100%</span></h3>
+        <ul>
+          <li>100% предоплата при отгрузке со склада</li>
+          <li>50% предоплата при пошиве партии</li>
+          <li>Безналичный расчёт — ИП, ООО, физ.лицо</li>
+          <li>Документы: ЕАС, декларации, ЧЗ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TELEGRAM ── -->
+<section class="s tg-section" id="telegram">
+  <div class="wrap">
+    <div class="tg-grid">
+      <div class="tg-side">
+        <span class="eyebrow"><span class="dot"></span>Telegram · 248 подписчиков</span>
+        <h2 class="display">Посмотри,<br>как происходят<br><span class="red">поставки</span></h2>
+        <p class="lead">Наш Telegram-канал — живой блог производства. Кейсы клиентов, видео из цеха, новые ткани, моменты отгрузки и реальные обзоры партий.</p>
+
+        <div class="tg-features">
+          <div class="tg-feature">
+            <span class="icon"></span>
+            <p><b>Кейсы клиентов</b> — материалы, плотности, цены, сроки. Без воды.</p>
+          </div>
+          <div class="tg-feature">
+            <span class="icon"></span>
+            <p><b>Видео из цеха</b> — что и как мы шьём прямо сейчас.</p>
+          </div>
+          <div class="tg-feature">
+            <span class="icon"></span>
+            <p><b>Коммерческие предложения</b> и анонсы новых тканей до прайса.</p>
+          </div>
+        </div>
+
+        <a href="https://t.me/rubolka_opt" class="tg-cta" target="_blank" rel="noopener">
+          <span class="tg-ico">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.6 8.2l-1.9 8.9c-.1.6-.5.8-1.1.5l-3-2.2-1.4 1.4c-.2.2-.3.3-.6.3l.2-3 5.5-5c.2-.2-.1-.3-.3-.1l-6.8 4.3-2.9-.9c-.6-.2-.6-.6.1-.9l11.4-4.4c.5-.2 1 .1.8.9z"/></svg>
+          </span>
+          Перейти в канал →
+        </a>
+      </div>
+
+      <div class="tg-mocks">
+        <span class="badge">LIVE · 2026</span>
+        <div class="tg-mock">
+          <img src="assets/tg-channel-1.png" alt="Telegram-канал RUBOLKA">
+        </div>
+        <div class="tg-mock">
+          <img src="assets/tg-channel-2.png" alt="Кейс из канала">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING TEASER ── -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="pricing-head">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Цены / 2026</span>
+        <h2>
+          От <span class="red">180 ₽</span> за&nbsp;единицу —<br>
+          <span class="strike">без</span> сюрпризов в&nbsp;счёте.
+        </h2>
+      </div>
+      <p class="lead">
+        Ниже — диапазоны от&nbsp;и&nbsp;до. Финальная цена зависит от&nbsp;объёма, ткани, цвета и&nbsp;нанесения. Чем больше партия — тем ниже стоимость единицы. Полный прайс присылаем по&nbsp;запросу.
+      </p>
+    </div>
+
+    <div class="price-table">
+      <div class="price-row">
+        <div class="pn">/01</div>
+        <div class="name">Футболки базовые<small>хлопок 160–200 г/м²</small></div>
+        <div class="price"><span class="from">от</span>180<span class="cur">₽</span></div>
+        <div class="tag">от партии</div>
+      </div>
+      <div class="price-row">
+        <div class="pn">/02</div>
+        <div class="name">Футболки оверсайз<small>плотный хлопок, посадка drop-shoulder</small></div>
+        <div class="price"><span class="from">от</span>250–500<span class="cur">₽</span></div>
+        <div class="tag">от партии</div>
+      </div>
+      <div class="price-row">
+        <div class="pn">/03</div>
+        <div class="name">Свитшоты<small>двухнитка, петля или начёс</small></div>
+        <div class="price"><span class="from">от</span>600<span class="cur">₽</span></div>
+        <div class="tag">за штуку</div>
+      </div>
+      <div class="price-row">
+        <div class="pn">/04</div>
+        <div class="name">Худи оверсайз 3-нитка с&nbsp;начёсом<small>тёплые, плотность 320–340 г/м²</small></div>
+        <div class="price"><span class="from">от</span>750–1100<span class="cur">₽</span></div>
+        <div class="tag">за штуку</div>
+      </div>
+      <div class="price-row">
+        <div class="pn">/05</div>
+        <div class="name">Худи 3-нитка без&nbsp;начёса<small>гладкая фактура, петля</small></div>
+        <div class="price"><span class="from">от</span>980–1300<span class="cur">₽</span></div>
+        <div class="tag">за штуку</div>
+      </div>
+      <div class="price-row">
+        <div class="pn">/06</div>
+        <div class="name">Бомберы<small>с подкладом, на молнии</small></div>
+        <div class="price"><span class="from">от</span>2100<span class="cur">₽</span></div>
+        <div class="tag">за штуку</div>
+      </div>
+    </div>
+
+    <div class="price-extras">
+      <div class="price-extra">
+        <div class="lbl">+ Нанесение</div>
+        <p><b>DTF, шелкография, флекс</b> — <span>от&nbsp;50&nbsp;₽.</span> <b>Флекстран</b> — <span>от&nbsp;300&nbsp;₽.</span> Цена зависит от&nbsp;размера и&nbsp;количества.</p>
+      </div>
+      <div class="price-extra">
+        <div class="lbl">+ Под заказ</div>
+        <p>Также шьём <b>верхнюю одежду, спецодежду, спортивную синтетическую форму</b> и&nbsp;многое другое — обсудим индивидуально.</p>
+      </div>
+    </div>
+
+    <div class="price-foot">
+      <p class="note">→ Все цены указаны <b>от</b> и&nbsp;зависят от&nbsp;тиража, ткани и&nbsp;комплектации. Скидки постоянным клиентам и&nbsp;при объёмах от&nbsp;500&nbsp;ед.</p>
+      <a href="#lead" class="btn btn-red">Запросить точную цену<span class="arrow"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEAD FORM ── -->
+<section class="s form-section" id="lead">
+  <div class="deco-num">2026</div>
+  <div class="wrap" style="position:relative;z-index:2;">
+    <div class="form-grid">
+      <div class="form-side">
+        <span class="eyebrow"><span class="dot"></span>Заявка / Cat. №01</span>
+        <h2 class="display" style="margin-top:24px;">Получите<br>каталог<br><span class="red">с ценами</span></h2>
+        <p class="lead">Оставьте контакты — пришлём актуальный каталог и рассчитаем стоимость под ваш запрос. Обычно отвечаем в течение часа в рабочее время.</p>
+        <ul class="checklist">
+          <li>Каталог в PDF + прайс на текущую неделю</li>
+          <li>Расчёт по вашему объёму и фасону</li>
+          <li>Образцы ткани по запросу</li>
+        </ul>
+      </div>
+
+      <form class="lead-form" id="leadForm" novalidate>
+        <div class="row2">
+          <div class="field">
+            <label>Имя <span class="red">*</span></label>
+            <input type="text" name="name" required placeholder="Как к вам обращаться">
+          </div>
+          <div class="field">
+            <label>Телефон <span class="red">*</span></label>
+            <input type="tel" name="phone" required placeholder="+7 ___ ___ __ __">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Что интересует?</label>
+          <select name="interest">
+            <option>Оптовая закупка</option>
+            <option>Корпоративный мерч</option>
+            <option>Работа с маркетплейсами</option>
+            <option>Пробная партия / образцы</option>
+            <option>Другое</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Примерный объём</label>
+          <input type="text" name="volume" placeholder="например, 200 футболок">
+        </div>
+
+        <button type="submit">Отправить заявку →</button>
+        <p class="form-foot">или напишите напрямую в <a href="https://wa.me/79370958752">WhatsApp · +7 937 095-87-52</a></p>
+      </form>
+    </div>
+
+    <div class="mega-word">RU<span class="red">·</span>BOLKA</div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="foot-logo">
+          <img src="assets/logo-full.jpg" alt="RUBOLKA MERCH">
+          <div class="meta">
+            <b>RUBOLKA · MERCH</b><br>
+            ОПТОВЫЙ ПРОИЗВОДИТЕЛЬ<br>
+            ОДЕЖДЫ · С 2022 ГОДА
+          </div>
+        </div>
+        <p>Шьём трикотаж и синтетику в Москве на собственных цехах. Работаем с маркетплейсами, розницей и корпоративными заказчиками.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Адрес</h4>
+        <p><strong>Москва</strong>, ул. Причальная, 8, корпус 1</p>
+        <p>Можно приехать в любое время — предупредите за час.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Связь</h4>
+        <a href="tel:+79370958752"><strong>+7 937 095-87-52</strong></a>
+        <a href="https://wa.me/79370958752">WhatsApp</a>
+        <a href="https://t.me/rubolka_opt">Telegram-канал · RUBOLKA</a>
+      </div>
+      <div class="foot-col">
+        <h4>Навигация</h4>
+        <a href="#why">Преимущества</a>
+        <a href="#assortment">Ассортимент</a>
+        <a href="#print">Нанесение</a>
+        <a href="#process">Как начать</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#lead">Получить каталог</a>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2025 RUBOLKA · ОПТОВЫЙ ПРОИЗВОДИТЕЛЬ ОДЕЖДЫ · МОСКВА</span>
+      <span>SITE · V.2.0 / 2026</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WhatsApp floating ── -->
+<a href="https://wa.me/79370958752" class="wa-float" aria-label="Написать в WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor">
+    <path d="M16 3C9 3 3.4 8.6 3.4 15.6c0 2.3.6 4.6 1.8 6.6L3 29l7-1.8c2 1.1 4.2 1.6 6.4 1.6h.05c7 0 12.6-5.6 12.6-12.6S23 3 16 3zm0 22.7c-1.95 0-3.85-.5-5.5-1.5l-.4-.2-4.1 1.05 1.1-4-.25-.4c-1.1-1.7-1.65-3.7-1.65-5.7 0-5.85 4.75-10.6 10.6-10.6S26.6 9.7 26.6 15.55c0 5.85-4.75 10.55-10.6 10.55zm6-7.95c-.3-.15-2-.95-2.3-1.05-.3-.1-.55-.15-.8.15-.25.3-.85 1.05-1.05 1.3-.2.25-.4.25-.7.1-.3-.15-1.4-.5-2.65-1.65-1-.85-1.65-1.95-1.85-2.25-.2-.3-.05-.45.1-.6.15-.15.3-.4.45-.55.15-.2.2-.3.3-.5.1-.2.05-.4-.05-.55-.1-.15-.8-1.95-1.1-2.65-.3-.7-.6-.55-.8-.6-.2 0-.4-.05-.65-.05s-.55.1-.85.4-1.1 1.1-1.1 2.65 1.15 3.1 1.3 3.3c.15.2 2.2 3.4 5.35 4.7.75.3 1.35.5 1.8.65.75.25 1.45.2 2 .15.6-.1 1.95-.8 2.2-1.55.25-.75.25-1.4.2-1.55-.05-.15-.25-.2-.55-.35z"/>
+  </svg>
+</a>
+
+<!-- Lightbox for review images -->
+<div id="lb" style="position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:200; display:none; align-items:center; justify-content:center; padding:24px; cursor:zoom-out;">
+  <img id="lbImg" src="" alt="" style="max-width:100%; max-height:100%; object-fit:contain; border:1px solid rgba(255,255,255,0.15);">
+</div>
+
+<script>
+  // Form: basic validation + alert
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = this.name.value.trim();
+    var phone = this.phone.value.trim();
+    if (!name || !phone) {
+      alert('Пожалуйста, заполните имя и телефон.');
+      return;
+    }
+    alert('Заявка отправлена! Мы свяжемся с вами.');
+    this.reset();
+  });
+
+  // Lightbox for review screenshots
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lbImg');
+  document.querySelectorAll('.review-card img').forEach(function(img){
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function(){
+      lbImg.src = img.src;
+      lb.style.display = 'flex';
+    });
+  });
+  lb.addEventListener('click', function(){ lb.style.display = 'none'; lbImg.src = ''; });
+</script>
+
+</body>
+</html>
