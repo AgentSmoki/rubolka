@@ -1,4 +1,4 @@
-# Graph Report - clones/agentsmoki_rubolka  (2026-09-02)
+# Graph Report - clones/agentsmoki_rubolka  (2026-09-01)
 
 ## Corpus Check
 - cluster-only mode — file stats not available
