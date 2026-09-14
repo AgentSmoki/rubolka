@@ -1,0 +1,249 @@
+{
+  "communities": {
+    "0": [
+      "agents_md_project",
+      "claude_md_project",
+      "favicon_logo",
+      "index_html_landing",
+      "logo_full_logo",
+      "logo_logo",
+      "merch_beanie_photo",
+      "merch_couple_tee_photo",
+      "p1_production_photo",
+      "p2_production_photo",
+      "p3_production_photo",
+      "r10_review",
+      "r1_review",
+      "r2_review",
+      "r3_review",
+      "r4_review",
+      "r5_review",
+      "r6_review",
+      "r7_review",
+      "r8_review",
+      "r9_review",
+      "readme_md_landing",
+      "tg_channel_1_screenshot",
+      "tg_channel_2_screenshot"
+    ],
+    "1": [
+      "claude_md_project_spec",
+      "draw_08d7c178_website_catalog_ui",
+      "draw_c6550b20_website_footer",
+      "image_20250619_181610_whatsapp_feedback",
+      "image_20250619_181707_whatsapp_print",
+      "image_20250619_181728_whatsapp_delivery",
+      "img_5740_product_tee_photo",
+      "rubolka_merch2_case_baltbet",
+      "rubolka_merch2_case_military_event",
+      "rubolka_merch2_case_varvs",
+      "rubolka_merch2_commercial_proposal",
+      "rubolka_merch2_contact_nikita",
+      "rubolka_merch2_print_dtf",
+      "rubolka_merch2_print_flextran",
+      "rubolka_merch2_product_bomber",
+      "rubolka_merch2_product_hoodie",
+      "rubolka_merch2_product_sweatshirt",
+      "rubolka_merch2_product_tshirt_basic",
+      "rubolka_merch2_product_tshirt_oversize",
+      "rubolka_merch2_tg_channel",
+      "tee_white_oversize_size_chart"
+    ],
+    "2": [
+      "index_landingpage",
+      "merch_jacket_back_photo",
+      "merch_jacket_front_photo",
+      "merch_sleeve_patch_detail",
+      "sku001_girl_product_shot",
+      "sku004_beige_hoodie_celebrity_story",
+      "sku004_brown_hoodie_front",
+      "sku004_red_hoodie_back",
+      "sport_1_lifestyle",
+      "sport_thumb_thumbnail",
+      "tee_black_detail_fabric",
+      "tee_black_man_product",
+      "tee_black_woman_product",
+      "tee_grey_couple_product",
+      "tee_navy_product",
+      "tee_pink_detail",
+      "tee_white_back_product",
+      "tee_white_front_product",
+      "tee_white_man_product"
+    ],
+    "3": [
+      "image_2025_06_19_18_17_41_delivery_chat",
+      "image_2025_06_19_18_17_55_customer_review_chat",
+      "image_2025_06_19_18_31_28_navy_tshirt_product",
+      "image_2025_06_19_18_32_29_grey_tshirt_couple",
+      "logo_rubolka_merch_logo",
+      "photo_2025_06_19_18_18_39_customer_review_viktoriya",
+      "photo_2025_06_19_18_19_06_custom_print_review",
+      "photo_2025_06_19_18_19_25_order_payment_tracking",
+      "photo_2026_04_29_09_14_00_sports_jacket_back",
+      "photo_2026_04_29_09_14_24_sports_jacket_front",
+      "photo_2026_04_29_09_14_31_beanie_varvch",
+      "photo_2026_04_29_09_14_36_jacket_number_patch",
+      "photo_2026_04_29_09_15_06_klava_coca_merch"
+    ],
+    "4": [
+      "claude_md_rubolka",
+      "img_5740_white_tshirt_front",
+      "img_5741_white_tshirt_back",
+      "img_7895_thumb_peach_sportswear_stand",
+      "img_8045_peach_sportswear_dips",
+      "img_8108_peach_sportswear_tire",
+      "index_html_rubolka",
+      "photo_20260429_091542_brown_tracksuit",
+      "photo_20260429_091549_beige_tracksuit",
+      "photo_20260429_091554_red_tracksuit"
+    ],
+    "5": [
+      "02_dc051c16_production_workshop",
+      "02_production_workshop",
+      "draw_5331b517_website_hero",
+      "draw_682ff0f5_website_hero",
+      "draw_6b2d5cee_website_production",
+      "image_20250619_181556_whatsapp_payment",
+      "image_20250619_181638_whatsapp_shipping",
+      "rubolka_merch2_brand"
+    ],
+    "6": [
+      "image_2025_06_19_18_39_39_white_oversized_tshirt",
+      "image_2025_06_19_18_39_50_black_oversized_tshirt",
+      "image_2025_06_19_18_41_19_black_oversized_female",
+      "image_2025_06_19_18_42_23_size_chart_oversized",
+      "image_2025_06_19_18_43_05_black_tshirt_detail",
+      "image_2025_06_19_18_43_15_pink_oversized_female"
+    ],
+    "7": [
+      "01_c4556db2_screen_printing_machine",
+      "01_screen_printing_machine",
+      "03_980e0586_silkscreen_print",
+      "03_silkscreen_print",
+      "rubolka_merch2_print_silkscreen"
+    ]
+  },
+  "cohesion": {
+    "0": 0.11956521739130435,
+    "1": 0.12380952380952381,
+    "2": 0.19298245614035087,
+    "3": 0.20512820512820512,
+    "4": 0.5333333333333333,
+    "5": 0.32142857142857145,
+    "6": 0.4666666666666667,
+    "7": 0.6
+  },
+  "gods": [
+    {
+      "id": "index_html_landing",
+      "label": "Rubolka Landing Page (index.html)",
+      "degree": 21
+    },
+    {
+      "id": "index_landingpage",
+      "label": "RUBOLKA Wholesale Clothing Landing Page",
+      "degree": 18
+    },
+    {
+      "id": "rubolka_merch2_commercial_proposal",
+      "label": "RUBOLKA MERCH Commercial Proposal (PDF)",
+      "degree": 15
+    },
+    {
+      "id": "rubolka_merch2_brand",
+      "label": "RUBOLKA MERCH Brand",
+      "degree": 12
+    },
+    {
+      "id": "claude_md_rubolka",
+      "label": "CLAUDE.md \u2013 Rubolka Project Config & Architecture",
+      "degree": 8
+    },
+    {
+      "id": "index_html_rubolka",
+      "label": "index.html \u2013 Rubolka Landing Page (single-page static site)",
+      "degree": 8
+    },
+    {
+      "id": "rubolka_merch2_product_tshirt_oversize",
+      "label": "Product: \u0424\u0443\u0442\u0431\u043e\u043b\u043a\u0430 \u043e\u0432\u0435\u0440\u0441\u0430\u0439\u0437",
+      "degree": 6
+    },
+    {
+      "id": "claude_md_project",
+      "label": "Rubolka Project Description (CLAUDE.md)",
+      "degree": 5
+    },
+    {
+      "id": "tg_channel_1_screenshot",
+      "label": "Telegram Channel Screenshot \u2014 Posts Feed (248 subscribers, min order notice)",
+      "degree": 5
+    },
+    {
+      "id": "rubolka_merch2_print_silkscreen",
+      "label": "Print Method: \u0428\u0435\u043b\u043a\u043e\u0433\u0440\u0430\u0444\u0438\u044f (Screen Printing)",
+      "degree": 5
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Rubolka Landing Page (index.html)",
+      "target": "RUBOLKA MERCH Logo \u2014 Circular Black Badge",
+      "source_files": [
+        "index.html",
+        "assets/logo.jpg"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc \u2194 image); connects across different repos/directories; peripheral node `RUBOLKA MERCH Logo \u2014 Circular Black Badge` unexpectedly reaches hub `Rubolka Landing Page (index.html)`"
+    },
+    {
+      "source": "Rubolka Landing Page (index.html)",
+      "target": "Product Photo \u2014 Black Merch Beanie Hat with Custom Rubber Patch",
+      "source_files": [
+        "index.html",
+        "assets/wear/merch-beanie.jpg"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc \u2194 image); connects across different repos/directories; peripheral node `Product Photo \u2014 Black Merch Beanie Hat with Custom Rubber Patch` unexpectedly reaches hub `Rubolka Landing Page (index.html)`"
+    },
+    {
+      "source": "Rubolka Landing Page (index.html)",
+      "target": "Product Photo \u2014 Red Hoodie and Jogger Set (female model, back view)",
+      "source_files": [
+        "index.html",
+        "assets/wear/merch-couple-tee.jpg"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc \u2194 image); connects across different repos/directories; peripheral node `Product Photo \u2014 Red Hoodie and Jogger Set (female model, back view)` unexpectedly reaches hub `Rubolka Landing Page (index.html)`"
+    },
+    {
+      "source": "Rubolka Landing Page (index.html)",
+      "target": "Customer Review \u2014 Telegram chat, SberBank payment 9350 RUB, Moscow to Khimki delivery",
+      "source_files": [
+        "index.html",
+        "assets/reviews/r10.jpg"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc \u2194 image); connects across different repos/directories; peripheral node `Customer Review \u2014 Telegram chat, SberBank payment 9350 RUB, Moscow to Khimki delivery` unexpectedly reaches hub `Rubolka Landing Page (index.html)`"
+    },
+    {
+      "source": "Rubolka Landing Page (index.html)",
+      "target": "Customer Review \u2014 WhatsApp chat, Tinkoff receipt and tracking number",
+      "source_files": [
+        "index.html",
+        "assets/reviews/r1.png"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc \u2194 image); connects across different repos/directories; peripheral node `Customer Review \u2014 WhatsApp chat, Tinkoff receipt and tracking number` unexpectedly reaches hub `Rubolka Landing Page (index.html)`"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}
